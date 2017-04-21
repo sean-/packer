@@ -296,7 +296,7 @@ func ParseInput(r io.Reader, inputFormat InputFormat) (*Template, error) {
 			return nil, err
 		}
 	default:
-		return nil, fmt.Errorf("Unsupported input format %q (supported values: %s)", inputFormat)
+		return nil, fmt.Errorf("Unsupported input format %q", inputFormat)
 	}
 
 	// Create our decoder
