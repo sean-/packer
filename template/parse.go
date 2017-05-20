@@ -288,11 +288,11 @@ func ParseInput(r io.Reader, inputFormat InputFormat) (*Template, error) {
 	var raw interface{}
 	switch inputFormat {
 	case FormatECMA404:
-		if err := json.NewDecoder(r).Decode(&raw); err != nil {
+		if err := json.Unmarshal(buf.Bytes(), &raw); err != nil {
 			return nil, err
 		}
 	case FormatJSON5:
-		if err := json5.NewDecoder(r).Decode(&raw); err != nil {
+		if err := json5.Unmarshal(buf.Bytes(), &raw); err != nil {
 			return nil, err
 		}
 	default:
